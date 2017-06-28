@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact Card</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("button").click(function(e){
+                    e.preventDefault();
+        
+                    var firstName = $("#firstName").val();
+                    var lastName = $("#lastName").val();
+                    var description = $("#description").val();
+                    $("#contactCard").append("<div id='front'><h2>" + firstName + " " + lastName + "</h2><p>Click here for description!</p><p id='desc' style='display: none'>" + description + "</p></div>");
+                    $("#firstName").val("");
+    				$("#lastName").val("");
+	    			$("#description").val("");
+                });
+                $(document).on('click', '#front', function(){
+				$(this).children().toggle();
+			    });    
+            });
+        </script>
+    </head>
+    <body>
+        <form>
+            First name:<input type="text" id="firstName"><br>
+            Last name:<input type="text" id="lastName"><br>
+            Description: <br>
+            <textarea rows="4" cols="30" type="text" id="description"></textarea><br>
+            <button type="text">Add User</button>
+        </form>
+        <h1>Contacts</h1>
+        <div id="contactCard">
+            
+        </div>
+        
+    </body>
+</html>
